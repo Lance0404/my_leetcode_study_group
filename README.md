@@ -24,3 +24,7 @@
 
 
 
+---
+### Lance's personal area
+
+* I use language as the top folders, followed by algorithm sub folders
