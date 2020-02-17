@@ -3,7 +3,7 @@
 ### Information for the event
 * Event: One Leetcode A Day
 * Objective: every attendee should share one leetcode problem and solution to the group
-* Time: 22:00 (UTC+8) everyday from Monday to Thrusday 
+* Time: 22:00 (UTC+8) everyday from Monday to Thrusday
 * People with interest: Lance, Scott, Tim, Deron, Sel, York, Justin, Yayo, Petch, CY,... (10 for now)
  
 ---
@@ -20,10 +20,10 @@
 * Each presenter can spend at most 5 min describing the leetcode task, and at most 5 min describing his solution, without interuption.
 * At most 10 min for questions. 
 * Time should be controlled wisely for both presenter and asker.
-* Futher discussion can be carried out offline.
-
-
-
+* Further discussion can be carried out offline.
+* Use the language you are most strongest, so others can also consult the syntax with you.
+* Provide the code you shared with link if possible.
+ 
 ---
 ### Lance's personal area
 
