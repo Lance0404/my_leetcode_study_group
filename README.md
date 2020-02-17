@@ -10,7 +10,7 @@
 ### Preface
 * Anyone with junior level of data structure and algorithm are glad to join and encourage each other. Anyone with senior level are appreciated to join and give advice.
 * This is just a prototype of our algorithm study group, we may keep evolving democratically. 
-* I will be the host for the time been.
+* I will be the host for the time being.
 ---
 ### How should we run the event?
 * Each presenter should provide the leetcode link to the host before the event, so the host can announce it beforehand.
