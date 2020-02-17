@@ -4,7 +4,7 @@
 * Event: One Leetcode A Day
 * Objective: every attendee should share one leetcode problem and solution to the group
 * Time: 22:00 (UTC+8) everyday from Monday to Thrusday 
-* People with interest: Lance, Scott, Tim, Deron, Sel, York, Justin, Yayo, Petch,... (9 for now)
+* People with interest: Lance, Scott, Tim, Deron, Sel, York, Justin, Yayo, Petch, CY,... (10 for now)
  
 ---
 ### Preface
