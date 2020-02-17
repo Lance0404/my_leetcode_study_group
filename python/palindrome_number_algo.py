@@ -13,19 +13,15 @@ class Solution:
         digit_num = 1
         z = x
         int_lst = []
+        # loop through each digit and store them in a list
         while z / 10 >= 1:
             digit_num += 1
             remainder = z % 10
-            print(f'remainder {remainder}')
             int_lst.append(remainder)
             z = int((z - remainder) / 10)
-        remainder = z % 10
-        int_lst.append(remainder)
-        # print(f'digit_num {digit_num}')
-        # print(f'int_lst {int_lst}')
-        # print(f'len int_lst: {len(int_lst)}')
+        # one more digit left
+        int_lst.append(z)
         for _ in range(len(int_lst) // 2):
-            print(_)
             if int_lst.pop() != int_lst.pop(0):
                 return False
         return True
