@@ -1,0 +1,30 @@
+<html>
+
+<body>
+
+
+</body>
+<script>
+	//SCOTT
+	var reverse = function (x) {
+		var str = x.toString().replace('-', '');
+		var a = str.length;
+
+		let output = 0;
+
+		for (let i = a - 1; i >= 0; i--) {
+			output += +str[i] * Math.pow(10, i);
+		}
+
+		if (x < 0) {
+			output *= -1;
+		}
+
+		if (output < -(2 ** 31) || output > 2 ** 31 - 1) {
+			return 0;
+		}
+		return output
+	};		
+</script>
+
+</html>
