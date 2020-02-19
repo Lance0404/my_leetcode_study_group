@@ -1,0 +1,41 @@
+<html>
+
+<body>
+
+
+</body>
+<script>
+	//brute force
+	var subarraySum = function (nums, k) {
+		let count = 0;
+
+		var record = {};
+
+		for (let i = 0; i < nums.length; i++) {
+			if (record[i] == undefined) {
+				record[i] = nums[i];
+			}
+
+			for (let j = 0; j <= i; j++) {
+				if (i == j) {
+					if (record[j] === k) {
+						count++;
+					}
+					continue;
+				}
+				record[j] += nums[i];
+				if (record[j] === k) {
+					count++;
+				}
+			}
+		}
+
+		return count;
+	};
+
+	var a = subarraySum([1, 2, 3, 4, 5, 7, -12, 10], 5);
+
+	console.log(a);
+</script>
+
+</html>
