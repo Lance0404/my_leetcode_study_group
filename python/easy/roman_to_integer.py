@@ -84,5 +84,5 @@ class Solution:
 s = Solution()
 ret = s.romanToInt('MCMXCIV') # M CM XC IV
 print(f'ret {ret}') # 1994
-ret = s.romanToInt('III') # M CM XC IV
+ret = s.romanToInt('III')
 print(f'ret {ret}') # 3
