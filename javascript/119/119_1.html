@@ -1,0 +1,44 @@
+<html>
+
+<body>
+
+
+</body>
+<script>
+	//recursive with map cache
+	var map = {
+		'0_1': 1,
+		'1_0': 1,
+		'1_1': 1
+	}
+
+	var getItem = function (rowIndex, colIndex) {
+		if (map[`${rowIndex}_${colIndex}`]) {
+			return map[`${rowIndex}_${colIndex}`];
+		} else if (colIndex == 0 || colIndex >= rowIndex) {
+			return 1;
+		}
+		else {
+			const val = getItem(rowIndex - 1, colIndex - 1) + getItem(rowIndex - 1, colIndex);
+			map[`${rowIndex}_${colIndex}`] = val;
+			return val;
+		}
+	}
+
+	var getRow = function (rowIndex) {
+		let output = [1];
+
+		for (let i = 1; i < rowIndex; i++) {
+			output[i] = getItem(rowIndex, i);
+		}
+
+		output.push(1);
+		return output;
+	};
+
+	var rtn = getRow(4);
+
+	console.log(rtn);
+</script>
+
+</html>
