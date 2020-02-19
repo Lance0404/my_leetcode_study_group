@@ -24,8 +24,9 @@ Memory Usage: 12.8 MB, less than 100.00% of Python3 online submissions for Roman
 
 
 class Solution:
-    def romanToInt(self, s: str) -> int:
-        symbol_to_value = {
+
+    def __init__(self):
+        self.symbol_to_value = {
             'M': 1000,
             'D': 500,
             'C': 100,
@@ -34,51 +35,52 @@ class Solution:
             'V': 5,
             'I': 1
         }
-        thousand_ck_lst = ['MMM', 'MM', 'M']
-        hundred_ck_lst = ['CM', 'DCCC', 'DCC', 'DC', 'D', 'CD', 'CCC', 'CC', 'C']
-        ten_ck_lst = ['XC', 'LXXX', 'LXX', 'LX', 'L', 'XL', 'XXX', 'XX', 'X']
-        one_ck_lst = ['IX', 'VIII', 'VII', 'VI', 'V', 'IV', 'III', 'II', 'I']
+        self.thousand_ck_lst = ['MMM', 'MM', 'M']
+        self.hundred_ck_lst = ['CM', 'DCCC', 'DCC', 'DC', 'D', 'CD', 'CCC', 'CC', 'C']
+        self.ten_ck_lst = ['XC', 'LXXX', 'LXX', 'LX', 'L', 'XL', 'XXX', 'XX', 'X']
+        self.one_ck_lst = ['IX', 'VIII', 'VII', 'VI', 'V', 'IV', 'III', 'II', 'I']
 
+    def romanToInt(self, s: str) -> int:
         def roman_to_int_foreach_digit(ss: str, to_check: list, upper: str, middle: str, step: str) -> (int, str):
             for i in to_check:
                 if ss.startswith(i):
-                    if i.endswith(upper):
-                        ret = symbol_to_value[upper] - symbol_to_value[step]
-                    elif i.startswith(middle):
-                        ret = symbol_to_value[middle] + symbol_to_value[step] * (len(i) - 1)
-                    elif i.endswith(middle):
-                        ret = symbol_to_value[middle] - symbol_to_value[step]
+                    if upper and i.endswith(upper):
+                        ret = self.symbol_to_value[upper] - self.symbol_to_value[step]
+                    elif middle and i.startswith(middle):
+                        ret = self.symbol_to_value[middle] + self.symbol_to_value[step] * (len(i) - 1)
+                    elif middle and i.endswith(middle):
+                        ret = self.symbol_to_value[middle] - self.symbol_to_value[step]
                     else:
-                        ret = symbol_to_value[step] * len(i)
-                    ss = ss[len(i):]
-                    return ret, ss
+                        ret = self.symbol_to_value[step] * len(i)
+                    return ret, ss[len(i):]
             return 0, ss
 
         ret_int = 0
-        for i in thousand_ck_lst:
-            if s.startswith(i):
-                # each can only be 'M'
-                ret_int += symbol_to_value['M'] * len(i)
-                s = s[len(i):]
-                break
-        print(f'ret_int {ret_int}, s {s}')
 
-        converted_int, s = roman_to_int_foreach_digit(s, hundred_ck_lst, 'M', 'D', 'C')
+        converted_int, s = roman_to_int_foreach_digit(s, self.thousand_ck_lst, None, None, 'M')
         ret_int += converted_int
         print(f'ret_int {ret_int}, s {s}')
 
-        converted_int, s = roman_to_int_foreach_digit(s, ten_ck_lst, 'C', 'L', 'X')
+        converted_int, s = roman_to_int_foreach_digit(s, self.hundred_ck_lst, 'M', 'D', 'C')
         ret_int += converted_int
         print(f'ret_int {ret_int}, s {s}')
 
-        converted_int, s = roman_to_int_foreach_digit(s, one_ck_lst, 'X', 'V', 'I')
+        converted_int, s = roman_to_int_foreach_digit(s, self.ten_ck_lst, 'C', 'L', 'X')
         ret_int += converted_int
         print(f'ret_int {ret_int}, s {s}')
+
+        converted_int, s = roman_to_int_foreach_digit(s, self.one_ck_lst, 'X', 'V', 'I')
+        ret_int += converted_int
+        print(f'ret_int {ret_int}, s {s}')
+
         return ret_int
 
 
 s = Solution()
-# ret = s.romanToInt('MCMXCIV') # M CM XC IV
-# print(f'ret {ret}') # 1994
+ret = s.romanToInt('MCMXCIV') # M CM XC IV
+print(f'ret {ret}') # 1994
 ret = s.romanToInt('III') # M CM XC IV
 print(f'ret {ret}') # 3
+
+# a = 'abcd'
+# print(a[2:])
