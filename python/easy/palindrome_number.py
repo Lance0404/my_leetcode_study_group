@@ -2,6 +2,9 @@
 Easy
 https://leetcode.com/problems/palindrome-number/
 
+Runtime: 84 ms, faster than 17.06% of Python3 online submissions for Palindrome Number.
+Memory Usage: 12.8 MB, less than 100.00% of Python3 online submissions for Palindrome Number.
+
 """
 
 
