@@ -1,0 +1,54 @@
+<html>
+
+<body>
+	<div></div>
+</body>
+
+<script>
+
+	//724. Find Pivot Index
+	//  ↓
+	// [1,2, 3,2,1] sum:9
+	//  left:1  right: 8
+
+	//    ↓
+	// [1,2, 3,2,1] sum:9
+	//  left:1  right: 6
+
+	//       ↓
+	// [1,2, 3,2,1] sum:9
+	//  left:3  right: 3, ans: index = 2
+
+	var pivotIndex = function (nums) {
+		if (!nums || nums.length == 0) { return -1 }
+
+		var sum = 0;
+
+		var left = 0;
+
+		for (let i = 0; i < nums.length; i++) {
+			sum += nums[i];
+		}
+
+		for (let i = 0; i < nums.length; i++) {
+			// for index=0, we don't have item left side
+			if (i !== 0)
+				left += nums[i - 1];
+
+			let tmp = sum;
+
+			tmp -= left;
+			tmp -= nums[i];
+
+			if (left === tmp) {
+				return i;
+			}
+		}
+		return -1;
+
+	};
+	console.log(pivotIndex([1, 1, 1, 1, 1, 1]));
+</script>
+
+
+</html>
