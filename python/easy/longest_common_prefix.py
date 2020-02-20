@@ -15,15 +15,10 @@ class Solution:
 
         def match_step(strs, shortest_item: str, step: int) -> str:
             s = shortest_item[0:step]
-            print(s)
-            all_str_match = True
             for j in strs:
                 if not j.startswith(s):
-                    all_str_match = False
-                    break
-            if all_str_match:
-                return s
-            return None
+                    return None
+            return s
 
         if not strs:
             return ''
@@ -47,10 +42,6 @@ class Solution:
         return ''
 
 
-
-
-
-
 s = Solution()
 ret = s.longestCommonPrefix(["flower","flow","flight"])
 print(f'ret {ret}')
@@ -58,7 +49,6 @@ ret = s.longestCommonPrefix([])
 print(f'ret {ret}')
 ret = s.longestCommonPrefix(["ca","a"])
 print(f'ret {ret}')
-ret = s.longestCommonPrefix(["flower","flow","flight"])
-print(f'ret {ret}')
+
 
 
