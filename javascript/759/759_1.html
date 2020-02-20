@@ -1,0 +1,67 @@
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+
+<script>
+
+	// href: https://leetcode.com/problems/repeated-substring-pattern
+	/**
+	 * @param {string} s
+	 * @return {boolean}
+	 */
+	var repeatedSubstringPattern = function (s) {
+		var map = {};
+
+		var str = s[0];
+
+		var isSinglePossible = true;
+
+		for (let i = 1; i < s.length / 2; i++) {
+
+			if (s[i] !== s[0]) {
+				isSinglePossible = false;
+			}
+
+			str += s[i];
+			const val = i + 1;
+			if (s.length % val == 0) { // is Factor
+				map[val] = str;
+				let isMatch = true;
+
+				for (let j = 1; j < s.length / val; j++) { // check each group if matched the pattern
+					for (let k = 0; k < val; k++) {
+						if (str[k] != s[j * val + k]) {
+							isMatch = false;
+							break;
+						}
+					}
+				}
+				if (isMatch) {
+					return true;
+				}
+			}
+		}
+
+		if (s.length == 1) {
+			return false;
+		}
+
+		else if (isSinglePossible) {
+			for (let i = 0; i < s.length; i++) {
+				if (s[i] !== s[0]) {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return false;
+		}
+	};
+	console.log(repeatedSubstringPattern("abab"));
+</script>
+
+</html>
