@@ -1,29 +1,33 @@
 """
 https://leetcode.com/problems/subarray-sum-equals-k/
 
-
+Time Limit Exceeded
 """
 
 
 class Solution:
     def subarraySum(self, nums: 'List[int]', k: int) -> int:
-        def sum_up(a: list) -> int:
+        def sum_equal_k(a: list) -> bool:
             # this is an expensive calculation
             s = 0
             for i in a:
                 s += i
-            # print(f's {s}')
-            return s
+            if s == k:
+                return True
+            return False
 
         cnt = 0
-
-        s_len = len(nums)
-
-        # loop through all lengths from longest to smallest
-        while s_len > 0:
-
-            s_len -= 1
-
+        window = len(nums)
+        while window > 0:
+            # print(f'window {window}')
+            for i in range(len(nums) - window + 1):
+                sub = nums[i:i+window]
+                # print(f'sub {sub}')
+                # print(f'check {sum_equal_k(sub)}')
+                if sum_equal_k(sub):
+                    cnt += 1
+            window -= 1
+        return cnt
 
 
 
