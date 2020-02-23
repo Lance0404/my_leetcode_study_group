@@ -17,10 +17,10 @@ class Solution:
         c1 = '{'
         c2 = '}'
 
-        def is_counter(left, right):
+        def is_counter(left, right) -> bool:
             if (left == a1 and right == a2) or (left == b1 and right == b2) or (left == c1 and right == c2):
                 return True
-            return
+            return False
 
         if len(s) % 2 != 0:
             return False
