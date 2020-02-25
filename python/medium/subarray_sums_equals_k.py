@@ -1,36 +1,44 @@
 """
 https://leetcode.com/problems/subarray-sum-equals-k/
 
-Time Limit Exceeded
+I implemented the solution 4
+
+Runtime: 112 ms, faster than 80.19% of Python3 online submissions for Subarray Sum Equals K.
+Memory Usage: 15.1 MB, less than 96.00% of Python3 online submissions for Subarray Sum Equals K.
 """
 
 
 class Solution:
     def subarraySum(self, nums: 'List[int]', k: int) -> int:
-        def sum_equal_k(a: list) -> bool:
-            # this is an expensive calculation
-            s = 0
-            for i in a:
-                s += i
-            if s == k:
-                return True
-            return False
-
         cnt = 0
-        window = len(nums)
-        while window > 0:
-            # print(f'window {window}')
-            for i in range(len(nums) - window + 1):
-                sub = nums[i:i+window]
-                # print(f'sub {sub}')
-                # print(f'check {sum_equal_k(sub)}')
-                if sum_equal_k(sub):
-                    cnt += 1
-            window -= 1
-        return cnt
+        sum = 0
+        sum_hash = {}
+        loop_cnt = 0
+        for i in nums:
+            loop_cnt += 1
+            sum += i
+            diff = sum - k
 
+            if diff == 0:
+                cnt += 1
+            if diff in sum_hash:
+                cnt += sum_hash[diff]
+
+            if sum not in sum_hash:
+                sum_hash[sum] = 1
+            else:
+                sum_hash[sum] += 1
+
+            print(f'i {i} loop {loop_cnt} sum {sum} diff {diff} sum_hash {sum_hash} cnt {cnt}')
+        return cnt
 
 
 sol = Solution()
 ret = sol.subarraySum([1,1,1], 2)
-print(f'ret {ret}')
+print(f'ret {ret}') # 2
+ret = sol.subarraySum([1,2,3], 3)
+print(f'ret {ret}') # 2
+ret = sol.subarraySum([1,2,1,2,1],3)
+print(f'ret {ret}') # 4
+ret = sol.subarraySum([1],0)
+print(f'ret {ret}') # 0
