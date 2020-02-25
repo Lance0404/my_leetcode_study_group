@@ -25,6 +25,12 @@ class Solution:
 
         return head
 
+    # def get_last(self, head):
+    #     last = None
+    #     while head.next:
+    #         last = head.next
+    #     return last.val
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
 
         if not l1 and not l2:
