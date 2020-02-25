@@ -17,7 +17,7 @@ class Solution:
         for i in nums:
             loop_cnt += 1
             sum += i
-            diff = sum - k
+            diff = sum - k  # sum - diff = k
 
             if diff == 0:
                 # which means from there is a subarray with sum == k from the first node to the current node
@@ -38,11 +38,11 @@ class Solution:
 
 
 sol = Solution()
-ret = sol.subarraySum([1,1,1], 2)
-print(f'ret {ret}') # 2
-ret = sol.subarraySum([1,2,3], 3)
+# ret = sol.subarraySum([1,1,1], 2)
+# print(f'ret {ret}') # 2
+ret = sol.subarraySum([1,2,3], 3) #1 3 6
 print(f'ret {ret}') # 2
 ret = sol.subarraySum([1,2,1,2,1],3)
 print(f'ret {ret}') # 4
-ret = sol.subarraySum([1],0)
-print(f'ret {ret}') # 0
+# ret = sol.subarraySum([1],0)
+# print(f'ret {ret}') # 0
