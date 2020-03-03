@@ -1,8 +1,8 @@
 """
 https://leetcode.com/problems/linked-list-cycle/
 
-Runtime: 48 ms, faster than 64.49% of Python3 online submissions for Linked List Cycle.
-Memory Usage: 15.9 MB, less than 100.00% of Python3 online submissions for Linked List Cycle.
+Runtime: 40 ms, faster than 95.66% of Python3 online submissions for Linked List Cycle.
+Memory Usage: 16 MB, less than 100.00% of Python3 online submissions for Linked List Cycle.
 """
 
 
@@ -18,12 +18,13 @@ class Solution:
 
         if not head or not head.next:
             return False
-        turtle = head
-        hare = head.next
+        turtle = head.next
+        hare = head.next.next
 
-        while hare != turtle:
-            if not hare or not hare.next:
-                return False
-            hare = hare.next.next
-            turtle = turtle.next
-        return True
+        if hare and hare.next:
+            while hare and hare.next and hare != turtle:
+                hare = hare.next.next
+                turtle = turtle.next
+            if hare == turtle:
+                return True
+        return False
