@@ -17,6 +17,7 @@ class Solution:
 
         # find the intersection of the two runners
         turtle = hare = nums[0]
+        # start traversing
         turtle = nums[turtle]
         hare = nums[nums[hare]]
         while turtle != hare:
